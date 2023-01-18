@@ -1,3 +1,7 @@
 export default interface IURL{
-    URL: object
+    ok: boolean,
+    result: {
+        code: string,
+        short_link: string
+    }
 }

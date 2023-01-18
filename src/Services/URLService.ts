@@ -1,21 +1,16 @@
-import IURL from "./URLModel"
 
-export class getShorten{
 
-    constructor(URL: string){
-        this.URL = URL
+export class DataService <T>{
+    private baseURL: string
+
+    constructor(baseURL: string){
+        this.baseURL = baseURL
     }
 
-
-    async getURL(): Promise<IURL> (URL: string)=>{
-        let link: string = ''
-        const response = await fetch(URL: string)
-        const data = await response()
-
-        return link;
-        
-
+    async getShortenedURL(endpoint: string): Promise<T>{
+        const response = await fetch(`${this.baseURL}/${endpoint}`)
+        const data  = response.json()
+        return data as T
     }
-
 
 }

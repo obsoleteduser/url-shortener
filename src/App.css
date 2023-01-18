@@ -40,4 +40,17 @@
   background-color: green;
   color: white;
   font-weight: 600;
+  cursor: pointer;
+  outline: unset;
+}
+
+.shortener button:active{
+  background-color: darkgreen;
+}
+
+.short-link{
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
 }

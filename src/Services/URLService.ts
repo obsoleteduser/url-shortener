@@ -9,7 +9,7 @@ export class DataService <T>{
 
     async getShortenedURL(endpoint: string): Promise<T>{
         const response = await fetch(`${this.baseURL}/${endpoint}`)
-        const data  = response.json()
+        const data  = await response.json()
         return data as T
     }
 

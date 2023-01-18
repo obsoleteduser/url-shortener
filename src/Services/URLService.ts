@@ -7,7 +7,7 @@ export class getShorten{
     }
 
 
-    async getURL: Promise<IURL> (URL: string)=>{
+    async getURL(): Promise<IURL> (URL: string)=>{
         let link: string = ''
         const response = await fetch(URL: string)
         const data = await response()

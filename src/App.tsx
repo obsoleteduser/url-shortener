@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import './App.css'
 import { DataService } from './Services/URLService'
@@ -8,6 +8,7 @@ function App() {
 
   const [url, setUrl] = useState<string>('')
   const [urlInfo, setUrlInfo] = useState<IURL>()
+  const [copied, setCopied] = useState<boolean>(false);
 
   const getShortURL = ():void=>{
 
@@ -22,6 +23,12 @@ const urlHandler = (event: React.FormEvent<HTMLInputElement>) :void => {
     console.log(url)
 }
 
+
+const handleCopy = () => {
+  navigator.clipboard.writeText(urlInfo?.result.short_link || '');
+  setCopied(true);
+}
+
   
   return (
     <div className="App">
@@ -31,7 +38,10 @@ const urlHandler = (event: React.FormEvent<HTMLInputElement>) :void => {
         <input onInput={urlHandler} type="text" name="" id="" placeholder='URL' value={url}/>
         <button onClick={getShortURL}>Get Link</button>
         </div>
-        {Boolean(urlInfo) && <div className="short-link">{urlInfo?.result.short_link}</div> }
+        {Boolean(urlInfo) && <div className="short-link">
+        <span>{urlInfo?.result.short_link}</span>
+        <span className='copy-btn' onClick={handleCopy}>Copy</span>
+        </div> }
       </div>
       
     </div>

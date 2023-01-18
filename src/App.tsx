@@ -40,7 +40,7 @@ const handleCopy = () => {
         </div>
         {Boolean(urlInfo) && <div className="short-link">
         <span>{urlInfo?.result.short_link}</span>
-        <span className='copy-btn' onClick={handleCopy}>Copy</span>
+        <span className='copy-btn' onClick={handleCopy}>{copied ? 'Copied!' : 'Copy to clipboard'}</span>
         </div> }
       </div>
       

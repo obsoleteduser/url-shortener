@@ -12,6 +12,7 @@ function App() {
   const [isloading, setIsLoading] = useState<boolean>(false)
 
   const getShortURL = (): void => {
+    setCopied(false)
     setIsLoading(true)
     const dataservice = new DataService<IURL>('https://api.shrtco.de/v2/shorten?url=')
     dataservice.getShortenedURL(url)
